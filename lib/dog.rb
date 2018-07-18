@@ -35,7 +35,13 @@ attr_reader :id
 
   def self.find_by_id(id)
     sql = "SELECT * FROM dogs WHERE id = ?"
-    row = DB[:conn].execute(sql, id)
+    row = DB[:conn].execute(sql, name:, breed:) id)
     Dog.new(id: row[0][0], name: row[0][1], breed: row[0][2])
   end
+
+  def self.find_or_create_by(name:, breed:)
+    sql = "SELECT * FROM dogs WHERE name = ?, breed = ?"
+    dog = DB[:conn].execute(sql, name, breed)
+    if !dog.empty?
+  end 
 end
