@@ -6,5 +6,5 @@ attr_accessor :id, :name, :breed
     @id = id
     @name = name
     @breed= breed
-  end 
+  end
 end
