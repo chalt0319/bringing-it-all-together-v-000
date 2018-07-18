@@ -8,4 +8,9 @@ attr_reader :id
     @name = name
     @breed= breed
   end
+
+  def self.create_table
+    sql = "CREATE TABLE dogs"
+    DB[:conn].execute(sql)
+  end
 end
