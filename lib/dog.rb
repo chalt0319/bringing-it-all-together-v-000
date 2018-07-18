@@ -43,6 +43,11 @@ attr_reader :id
     sql = "SELECT * FROM dogs WHERE name = ?, breed = ?"
     dog = DB[:conn].execute(sql, name, breed).flatten
     if !dog.empty?
-      Dog.new(id: dog[0], name: dog[1], breed: dog[2])
+      dog = Dog.new(id: dog[0], name: dog[1], breed: dog[2])
+    else
+      dog = Dog.create(name: name, breed: breed)
+    end
+    dog
   end
+  
 end
