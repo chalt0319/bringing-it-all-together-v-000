@@ -8,7 +8,7 @@ attr_reader :id
   def initialize(name:, breed:, id: nil)
     @id = id
     @name = name
-    @breed= breed
+    @breed = breed
   end
 
   def self.create_table
