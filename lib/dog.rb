@@ -36,6 +36,6 @@ attr_reader :id
   def self.find_by_id(id)
     sql = "SELECT * FROM dogs WHERE id = ?"
     row = DB[:conn].execute(sql, id)
-    Dog.create(name: row[0][1], breed: row[0][2])
+    Dog.new(name: row[0][1], breed: row[0][2])
   end
 end
