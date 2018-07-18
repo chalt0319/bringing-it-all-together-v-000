@@ -26,4 +26,10 @@ attr_reader :id
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
     self
   end
+
+  def self.create(name:, breed:)
+    new_dog = Dog.new(name, breed)
+    new_dog.save
+    new_dog
+  end
 end
