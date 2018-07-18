@@ -64,6 +64,6 @@ attr_reader :id
     if row != []
       Dog.new_from_db(row)
     end 
-  end 
+  end
 
 end
