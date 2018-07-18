@@ -45,7 +45,7 @@ attr_reader :id
     sql = "SELECT * FROM dogs WHERE name = ? AND breed = ?"
     # binding.pry
     dog = DB[:conn].execute(sql, name, breed)[0]
-    if !dog.empty?
+    if dog != []
       dog = Dog.new(id: dog[0], name: dog[1], breed: dog[2])
     else
       dog = Dog.create(name: name, breed: breed)
